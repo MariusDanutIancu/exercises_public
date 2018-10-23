@@ -1,8 +1,11 @@
 package com.kronos.java8;
 
+import java.util.Comparator;
+
 import com.kronos.java8.math.MathOperation;
 import com.kronos.java8.math.MathOps;
 import com.kronos.java8.util.GreetingService;
+import com.kronos.java8.util.SimpleInterface;
 
 /**
  * Format: parameter -> expression body
@@ -28,7 +31,7 @@ public class LambdaTester {
 		// with type declaration
 		MathOperation addition = (int a, int b) -> a + b;
 
-		// without type declaration
+		// without type declaration ( we can leave those out because they are inferred from the method interface
 		MathOperation subtraction = (a, b) -> a - b;
 
 		// with return statement along with curly braces
@@ -60,5 +63,32 @@ public class LambdaTester {
 		// print
 		greetService1.sayMessage("Message 1");
 		greetService2.sayMessage("Message 2");
+	}
+	
+	/**
+	 * 
+	 * 
+	 */
+	public void testLambdaComparator()
+	{
+		// test lambda expression
+		// Comparator<String> stringComparatorLambda = (String o1, String o2) -> { return o1.compareTo(o2); };
+		Comparator<String> stringComparatorLambda = (o1, o2) -> o1.compareTo(o2);
+		
+		// print
+		System.out.println("hello compared to world = " + stringComparatorLambda.compare("hello", "world"));
+	}
+	
+	/**
+	 * 
+	 * 
+	 */
+	public void testLambdaWithNoParameters()
+	{
+		// test lambda expression
+		SimpleInterface simpleInterface = () -> System.out.println("Simple Interface"); 
+		
+		// call lambda expression
+		simpleInterface.apply();
 	}
 }

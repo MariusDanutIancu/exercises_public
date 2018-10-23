@@ -8,5 +8,7 @@ public class App
     	LambdaTester lambdaTester = new LambdaTester();
     	lambdaTester.testLambdaMathOperations();
     	lambdaTester.testLambdaStringOperations();
+    	lambdaTester.testLambdaComparator();
+    	lambdaTester.testLambdaWithNoParameters();
     }
 }
